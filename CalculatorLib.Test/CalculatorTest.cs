@@ -6,15 +6,17 @@ namespace CalculatorLib.Test;
 
 public class CalculatorTest
 {
-    private const double x = 5;
-    private const double y = 10;
-    private const double zero = 0;
+    private const double X = 5;
+    private const double Y = 10;
+    private const double ZERO = 0;
     
-    [Fact]
-    public void Test_Add()
+    [Theory]
+    [InlineData(0, 0, 0)]
+    [InlineData(10, 0, 10)]
+    [InlineData(0, 10, 10)]
+    [InlineData(5, 7, 11)]
+    public void Test_Add(double x, double y, double expected)
     {
-        var expected = x + y;
-        
         var actual = Calculator.Add(x, y);
         
         Assert.Equal(expected, actual);
@@ -23,9 +25,9 @@ public class CalculatorTest
     [Fact]
     public void Test_Sub()
     {
-        var expected = x - y;
+        var expected = X - Y;
         
-        var actual = Calculator.Sub(x, y);
+        var actual = Calculator.Sub(X, Y);
         
         Assert.Equal(expected, actual);
     }
@@ -33,9 +35,9 @@ public class CalculatorTest
     [Fact]
     public void Test_Mul()
     {
-        var expected = x * y;
+        var expected = X * Y;
         
-        var actual = Calculator.Mul(x, y);
+        var actual = Calculator.Mul(X, Y);
         
         Assert.Equal(expected, actual);
     }
@@ -43,9 +45,9 @@ public class CalculatorTest
     [Fact]
     public void Test_Div()
     {
-        var expected = x / y;
+        var expected = X / Y;
         
-        var actual = Calculator.Div(x, y);
+        var actual = Calculator.Div(X, Y);
         
         Assert.Equal(expected, actual);
     }
@@ -53,6 +55,6 @@ public class CalculatorTest
     [Fact]
     public void Test_Div_Exception()
     {
-        Assert.Throws<DivideByZeroException>(() => Calculator.Div(x, zero));
+        Assert.Throws<DivideByZeroException>(() => Calculator.Div(X, ZERO));
     }
 }
