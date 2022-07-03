@@ -14,7 +14,7 @@ public class CalculatorTest
     [InlineData(0, 0, 0)]
     [InlineData(10, 0, 10)]
     [InlineData(0, 10, 10)]
-    [InlineData(5, 7, 11)]
+    [InlineData(5, 7, 12)]
     public void Test_Add(double x, double y, double expected)
     {
         var actual = Calculator.Add(x, y);
